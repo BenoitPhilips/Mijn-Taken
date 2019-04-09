@@ -16,9 +16,8 @@ class MijnLijstViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-     mijnTaken.load(sleutel: mijnTakenSleutel)
-        
-    }
+        mijnTaken.load(sleutel: mijnTakenSleutel)
+     }
 
     //MARK: - Tableview Datasource Methods
     
@@ -41,6 +40,7 @@ class MijnLijstViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.cellForRow(at: indexPath)?.accessoryType = (tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark) ? .none : .checkmark
         mijnTaken.lijst[indexPath.row].taakChecked = tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark
+        tableView.reloadData()
         self.mijnTaken.save(sleutel: self.mijnTakenSleutel)
    }
 
