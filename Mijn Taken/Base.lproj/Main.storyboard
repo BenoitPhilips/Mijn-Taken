@@ -31,7 +31,14 @@
                             <outlet property="delegate" destination="cWs-5R-r2D" id="Xc2-cU-8rP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Taken Te Doen" id="xkU-4s-x8J"/>
+                    <navigationItem key="navigationItem" title="Taken Te Doen" id="xkU-4s-x8J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="X3s-lx-5DX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="nieuweTaakBtnPressed:" destination="cWs-5R-r2D" id="p0v-Ei-daf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nwb-0n-LVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

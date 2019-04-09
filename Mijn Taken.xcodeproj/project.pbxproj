@@ -54,14 +54,38 @@
 		00812FA52256DCE4007E928E /* Mijn Taken */ = {
 			isa = PBXGroup;
 			children = (
-				00812FA62256DCE4007E928E /* AppDelegate.swift */,
-				00812FA82256DCE4007E928E /* MijnLijstViewController.swift */,
-				00812FAA2256DCE4007E928E /* Main.storyboard */,
+				009FD736225C3D67003E641E /* Models */,
+				009FD738225C3D84003E641E /* Controllers */,
+				009FD737225C3D7A003E641E /* Views */,
 				00812FAD2256DCE5007E928E /* Assets.xcassets */,
 				00812FAF2256DCE5007E928E /* LaunchScreen.storyboard */,
 				00812FB22256DCE5007E928E /* Info.plist */,
 			);
 			path = "Mijn Taken";
+			sourceTree = "<group>";
+		};
+		009FD736225C3D67003E641E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		009FD737225C3D7A003E641E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00812FAA2256DCE4007E928E /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		009FD738225C3D84003E641E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				00812FA62256DCE4007E928E /* AppDelegate.swift */,
+				00812FA82256DCE4007E928E /* MijnLijstViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
