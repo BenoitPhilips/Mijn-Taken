@@ -14,6 +14,7 @@
 		00812FB12256DCE5007E928E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAF2256DCE5007E928E /* LaunchScreen.storyboard */; };
 		009FD73A225C3F2A003E641E /* Taak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009FD739225C3F2A003E641E /* Taak.swift */; };
 		009FD73C225C428D003E641E /* TakenLijst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009FD73B225C428D003E641E /* TakenLijst.swift */; };
+		009FD73E225C641D003E641E /* NSTakenLijst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009FD73D225C641D003E641E /* NSTakenLijst.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		00812FB22256DCE5007E928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009FD739225C3F2A003E641E /* Taak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taak.swift; sourceTree = "<group>"; };
 		009FD73B225C428D003E641E /* TakenLijst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakenLijst.swift; sourceTree = "<group>"; };
+		009FD73D225C641D003E641E /* NSTakenLijst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTakenLijst.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				009FD739225C3F2A003E641E /* Taak.swift */,
 				009FD73B225C428D003E641E /* TakenLijst.swift */,
+				009FD73D225C641D003E641E /* NSTakenLijst.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				00812FA92256DCE4007E928E /* MijnLijstViewController.swift in Sources */,
 				00812FA72256DCE4007E928E /* AppDelegate.swift in Sources */,
 				009FD73A225C3F2A003E641E /* Taak.swift in Sources */,
+				009FD73E225C641D003E641E /* NSTakenLijst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

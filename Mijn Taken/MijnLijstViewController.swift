@@ -10,15 +10,17 @@ import UIKit
 
 class MijnLijstViewController: UITableViewController {
 
-    let mijnTaken = TakenLijst()
+    let mijnTaken = NSTakenLijst()
     let mijnTakenSleutel : String = "MijnTakenSleutelV1" //Om de mijn Taken Lijst te bewaren in the defaults (PList)
 
+    //----------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         mijnTaken.load(sleutel: mijnTakenSleutel)
      }
 
+    //----------------------------------------------------------------------------------------------------------
     //MARK: - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,6 +35,7 @@ class MijnLijstViewController: UITableViewController {
         return cell
     }
     
+    //----------------------------------------------------------------------------------------------------------
     //MARK: - TableView Delegate methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -43,7 +46,8 @@ class MijnLijstViewController: UITableViewController {
         mijnTaken.save(sleutel: mijnTakenSleutel)
    }
 
-    @IBAction func nieuweTaakBtnPressed(_ sender: UIBarButtonItem) {
+    //----------------------------------------------------------------------------------------------------------
+  @IBAction func nieuweTaakBtnPressed(_ sender: UIBarButtonItem) {
         var nieuweTaakTxtFld = UITextField()
         
         let alert = UIAlertController(title: "Maak een nieuwe taak", message: "", preferredStyle: .alert)

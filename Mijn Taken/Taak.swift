@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Taak {
+class Taak : Codable {
     
     var taak : String = ""
     var taakChecked : Bool = false
