@@ -10,25 +10,25 @@ import UIKit
 
 class MijnLijstViewController: UITableViewController {
 
-    var takenLijst = ["Boodschappen 7/11", "Boodschappen Big C", "Bellen naar"]
-    
+    let mijnTaken = TakenLijst()
+    let mijnTakenSleutel : String = "MijnTakenSleutelV1" //Om de mijn Taken Lijst te bewaren in the defaults (PList)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
+     mijnTaken.load(sleutel: mijnTakenSleutel)
         
     }
 
     //MARK: - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return takenLijst.count
+        return mijnTaken.lijst.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaakItemCell", for: indexPath)
-        cell.textLabel?.text=takenLijst[indexPath.row]
+        cell.textLabel?.text=mijnTaken.lijst[indexPath.row].taak
         // De checkbox staat aan zelfs als we in XCode dat bij de viewcontroller op default hebben ingesteld.
         cell.accessoryType = .none
         return cell
@@ -60,10 +60,12 @@ class MijnLijstViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Nieuwe taak", style: .default) { (action) in
             //klik op de "Nieuwe Taak"-button wordt hier verwerkt
-            if let nieuweTaak = nieuweTaakTxtFld.text {
-                if nieuweTaak != "" {
-                    self.takenLijst.append(nieuweTaak)
+            if let nieuweTaakTxt = nieuweTaakTxtFld.text {
+                if nieuweTaakTxt != "" {
+                    self.mijnTaken.append(nieuweTaakTxt)
                     self.tableView.reloadData()
+                    self.mijnTaken.save(sleutel: self.mijnTakenSleutel)
+                    
                 }
             }
         }
