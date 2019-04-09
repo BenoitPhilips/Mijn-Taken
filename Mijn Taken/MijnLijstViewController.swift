@@ -38,10 +38,9 @@ class MijnLijstViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Geselecteerde rij vervangen we door niet geselecteerd en markeren/demarkeren met een checkmark
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.cellForRow(at: indexPath)?.accessoryType = (tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark) ? .none : .checkmark
-        mijnTaken.lijst[indexPath.row].taakChecked = tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark
+        mijnTaken.lijst[indexPath.row].taakChecked = !mijnTaken.lijst[indexPath.row].taakChecked
         tableView.reloadData()
-        self.mijnTaken.save(sleutel: self.mijnTakenSleutel)
+        mijnTaken.save(sleutel: mijnTakenSleutel)
    }
 
     @IBAction func nieuweTaakBtnPressed(_ sender: UIBarButtonItem) {
