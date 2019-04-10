@@ -14,6 +14,8 @@
 		00812FAE2256DCE5007E928E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAD2256DCE5007E928E /* Assets.xcassets */; };
 		00812FB12256DCE5007E928E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAF2256DCE5007E928E /* LaunchScreen.storyboard */; };
 		009FD741225C72B6003E641E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 009FD73F225C72B6003E641E /* DataModel.xcdatamodeld */; };
+		00EC0B6E225DAAAF00634F05 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0B6D225DAAAF00634F05 /* CategoryTableViewController.swift */; };
+		00EC0B70225DB1DF00634F05 /* CDCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0B6F225DB1DF00634F05 /* CDCategories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		00812FB02256DCE5007E928E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00812FB22256DCE5007E928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009FD740225C72B6003E641E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		00EC0B6D225DAAAF00634F05 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		00EC0B6F225DB1DF00634F05 /* CDCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +84,9 @@
 		009FD736225C3D67003E641E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				002631B8225D786200058F55 /* CDTakenLijst.swift */,
 				009FD73F225C72B6003E641E /* DataModel.xcdatamodeld */,
+				00EC0B6F225DB1DF00634F05 /* CDCategories.swift */,
+				002631B8225D786200058F55 /* CDTakenLijst.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 		009FD738225C3D84003E641E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				00EC0B6D225DAAAF00634F05 /* CategoryTableViewController.swift */,
 				00812FA82256DCE4007E928E /* MijnLijstViewController.swift */,
 			);
 			name = Controllers;
@@ -175,6 +181,8 @@
 			files = (
 				00812FA92256DCE4007E928E /* MijnLijstViewController.swift in Sources */,
 				00812FA72256DCE4007E928E /* AppDelegate.swift in Sources */,
+				00EC0B70225DB1DF00634F05 /* CDCategories.swift in Sources */,
+				00EC0B6E225DAAAF00634F05 /* CategoryTableViewController.swift in Sources */,
 				002631B9225D786200058F55 /* CDTakenLijst.swift in Sources */,
 				009FD741225C72B6003E641E /* DataModel.xcdatamodeld in Sources */,
 			);

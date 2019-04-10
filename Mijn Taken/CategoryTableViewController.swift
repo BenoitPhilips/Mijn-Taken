@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  Mijn Taken test
+//  CategoryTableViewController.swift
+//  Mijn Taken
 //
-//  Created by Benoit Philips on 05/04/2019.
+//  Created by Benoit Philips on 10/04/2019.
 //  Copyright © 2019 HumbeekWave. All rights reserved.
 //
 
@@ -11,27 +11,25 @@ import CoreData
 
 //==================================================================================================
 
-class MijnLijstViewController: UITableViewController {
+class CategoryTableViewController: UITableViewController {
 
-    let mijnTaken = CDTakenLijst()
- 
+    let myCat = CDCategoriesLijst()
+
     //----------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        mijnTaken.load()
-     }
-
+        myCat.load()
+    }
+    
     //----------------------------------------------------------------------------------------------------------
     //MARK: - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mijnTaken.lijst.count
+        return myCat.lijst.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaakItemCell", for: indexPath)
-        cell.textLabel?.text=mijnTaken.lijst[indexPath.row].naam
-        // De checkbox staat aan zelfs als we in XCode dat bij de viewcontroller op default hebben ingesteld.
-        cell.accessoryType = mijnTaken.lijst[indexPath.row].checked ? .checkmark : .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CatItemCell", for: indexPath)
+        cell.textLabel?.text=myCat.lijst[indexPath.row].naam
         return cell
     }
     
@@ -40,63 +38,62 @@ class MijnLijstViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Geselecteerde rij vervangen we door niet geselecteerd en markeren/demarkeren met een checkmark
         tableView.deselectRow(at: indexPath, animated: true)
-        mijnTaken.lijst[indexPath.row].checked = !mijnTaken.lijst[indexPath.row].checked
-        tableView.reloadData()
-        mijnTaken.save()
-    }
-
-    //----------------------------------------------------------------------------------------------------------
+     }
+    
+  //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de buttons
-    @IBAction func nieuweTaakBtnPressed(_ sender: UIBarButtonItem) {
-        var nieuweTaakTxtFld = UITextField()
+    @IBAction func addCatBtnPressed(_ sender: UIBarButtonItem) {
+        var nieuweCatTxtFld = UITextField()
         
-        let alert = UIAlertController(title: "Maak een nieuwe Te Doen", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Maak een nieuwe taak", message: "", preferredStyle: .alert)
         
-        let actie = UIAlertAction(title: "Nieuwe Te Doen", style: .default) { (actie) in
+        let actie = UIAlertAction(title: "Nieuwe taak", style: .default) { (actie) in
             //klik op de "Nieuwe Taak"-button wordt hier verwerkt
-            if let nieuweTaakTxt = nieuweTaakTxtFld.text {
-                if nieuweTaakTxt != "" {
-                    self.mijnTaken.append(nieuweTaakTxt)
+            if let nieuweCatTxt = nieuweCatTxtFld.text {
+                if nieuweCatTxt != "" {
+                    self.myCat.append(nieuweCatTxt)
                     self.tableView.reloadData()
-                    self.mijnTaken.save()
+                    self.myCat.save()
                 }
             }
         }
         alert.addAction(actie)
         
         alert.addTextField { (alertTxtFld) in
-            alertTxtFld.placeholder = "omschrijving van de nieuwe taak"
-            nieuweTaakTxtFld = alertTxtFld
+            alertTxtFld.placeholder = "omschrijving van de nieuwe category"
+            nieuweCatTxtFld = alertTxtFld
         }
         
         present(alert,animated: true,completion: nil)
     }
+    
+    
 }
 
 //==================================================================================================
 //MARK: - SearchBar functions
 
-extension MijnLijstViewController: UISearchBarDelegate {
+extension CategoryTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         DispatchQueue.main.async{
             searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
         }
-      if let filter = searchBar.text {
-            mijnTaken.load(filter)
+        if let filter = searchBar.text {
+            myCat.load(filter)
         } else {
-            mijnTaken.load()
+            myCat.load()
         }
         self.tableView.reloadData()
     }
     
-     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             DispatchQueue.main.async{
                 searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
             }
-           mijnTaken.load()
-             self.tableView.reloadData()
+            myCat.load()
+            self.tableView.reloadData()
         }
     }
 }
