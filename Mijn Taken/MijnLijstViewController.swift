@@ -79,13 +79,25 @@ class MijnLijstViewController: UITableViewController {
 extension MijnLijstViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let filter = searchBar.text {
+        DispatchQueue.main.async{
+            searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
+        }
+      if let filter = searchBar.text {
             mijnTaken.load(filter)
         } else {
             mijnTaken.load()
         }
-        searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
         self.tableView.reloadData()
+    }
+    
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            DispatchQueue.main.async{
+                searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
+            }
+           mijnTaken.load()
+             self.tableView.reloadData()
+        }
     }
 }
 

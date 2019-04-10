@@ -34,32 +34,23 @@ class CDTakenLijst {
         }
     }
     
-    func load (){
-        let myRequest : NSFetchRequest<Taak> = Taak.fetchRequest()
+    func load (with request: NSFetchRequest<Taak> = Taak.fetchRequest()){
         do {
-            lijst = try mijnContext.fetch(myRequest)
+            lijst = try mijnContext.fetch(request)
         } catch  {
             print("BPH: Error fetching data (Taak) into myContext : \(error)")
         }
     }
     
-    func load (_ taakNaamTeSelecteren : String){
+     func load (_ taakNaamTeSelecteren : String){
         if taakNaamTeSelecteren == "" {
             load()
         } else {
-            let myRequest : NSFetchRequest<Taak> = Taak.fetchRequest()
-        
-            let predicaat = NSPredicate(format: "naam CONTAINS[cd] %@", taakNaamTeSelecteren)
-            myRequest.predicate = predicaat
-            let sorteerder = NSSortDescriptor(key: "naam", ascending: true)
-            myRequest.sortDescriptors = [sorteerder]
-        
-            do {
-                lijst = try mijnContext.fetch(myRequest)
-            } catch  {
-                print("BPH: Error fetching selected data (Taak) into myContext : \(error)")
-            }
-        }
+            let myRequest : NSFetchRequest<Taak> = Taak.fetchRequest()  //we gebruiken de default request niet
+            myRequest.predicate = NSPredicate(format: "naam CONTAINS[cd] %@", taakNaamTeSelecteren)
+            myRequest.sortDescriptors = [NSSortDescriptor(key: "naam", ascending: true)]
+            load(with: myRequest)
+         }
 
     }
 }
