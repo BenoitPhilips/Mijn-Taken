@@ -39,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002631BA225D85AA00058F55 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				00812FAD2256DCE5007E928E /* Assets.xcassets */,
+				00812FAF2256DCE5007E928E /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		00812F9A2256DCE4007E928E = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +67,11 @@
 		00812FA52256DCE4007E928E /* Mijn Taken */ = {
 			isa = PBXGroup;
 			children = (
+				00812FA62256DCE4007E928E /* AppDelegate.swift */,
+				009FD738225C3D84003E641E /* Controllers */,
 				009FD736225C3D67003E641E /* Models */,
 				009FD737225C3D7A003E641E /* Views */,
-				009FD738225C3D84003E641E /* Controllers */,
-				00812FAD2256DCE5007E928E /* Assets.xcassets */,
-				00812FAF2256DCE5007E928E /* LaunchScreen.storyboard */,
+				002631BA225D85AA00058F55 /* Supporting files */,
 				00812FB22256DCE5007E928E /* Info.plist */,
 			);
 			path = "Mijn Taken";
@@ -88,7 +97,6 @@
 		009FD738225C3D84003E641E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				00812FA62256DCE4007E928E /* AppDelegate.swift */,
 				00812FA82256DCE4007E928E /* MijnLijstViewController.swift */,
 			);
 			name = Controllers;

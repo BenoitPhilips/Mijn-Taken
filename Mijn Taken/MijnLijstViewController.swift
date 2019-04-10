@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+//==================================================================================================
+
 class MijnLijstViewController: UITableViewController {
 
     let mijnTaken = CDTakenLijst()
@@ -16,7 +18,7 @@ class MijnLijstViewController: UITableViewController {
     //----------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-         mijnTaken.load()
+        mijnTaken.load()
      }
 
     //----------------------------------------------------------------------------------------------------------
@@ -71,3 +73,20 @@ class MijnLijstViewController: UITableViewController {
     }
 }
 
+//==================================================================================================
+//MARK: - SearchBar functions
+
+extension MijnLijstViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let filter = searchBar.text {
+            mijnTaken.load(filter)
+        } else {
+            mijnTaken.load()
+        }
+        searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
+        self.tableView.reloadData()
+    }
+}
+
+//==================================================================================================
