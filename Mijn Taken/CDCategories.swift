@@ -29,7 +29,11 @@ class CDCategoriesLijst {
         }
     }
     
-    func load (with request: NSFetchRequest<Category> = Category.fetchRequest()){
+    func load (with request: NSFetchRequest<Category> = Category.fetchRequest(),filteredBy extraFilter: NSPredicate? = nil){
+        if extraFilter != nil {
+            request.predicate = extraFilter
+        }
+        request.sortDescriptors = [NSSortDescriptor(key: "naam", ascending: true)]
         do {
             lijst = try mijnContext.fetch(request)
         } catch  {
@@ -41,10 +45,8 @@ class CDCategoriesLijst {
         if CatNaamTeSelecteren == "" {
             load()
         } else {
-            let myRequest : NSFetchRequest<Category> = Category.fetchRequest()  //we gebruiken de default request niet
-            myRequest.predicate = NSPredicate(format: "naam CONTAINS[cd] %@", CatNaamTeSelecteren)
-            myRequest.sortDescriptors = [NSSortDescriptor(key: "naam", ascending: true)]
-            load(with: myRequest)
+            let predicate = NSPredicate(format: "naam CONTAINS[cd] %@", CatNaamTeSelecteren)
+            load(filteredBy: predicate)
         }
         
     }
