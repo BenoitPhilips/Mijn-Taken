@@ -19,7 +19,9 @@ class MijnLijstViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mijnTaken.load()
-     }
+        navigationController?.navigationItem.setHidesBackButton(false, animated: true)
+        
+    }
 
     //----------------------------------------------------------------------------------------------------------
     //MARK: - Tableview Datasource Methods
@@ -47,6 +49,12 @@ class MijnLijstViewController: UITableViewController {
 
     //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de buttons
+    
+//
+//    @IBAction func terugNaarCatBtnPressed(_ sender: UIBarButtonItem) {
+//         dismiss(animated: true, completion: nil)
+//    }
+//
     @IBAction func nieuweTaakBtnPressed(_ sender: UIBarButtonItem) {
         var nieuweTaakTxtFld = UITextField()
         
@@ -85,8 +93,8 @@ extension MijnLijstViewController: UISearchBarDelegate {
       if let filter = searchBar.text {
             mijnTaken.load(filter)
         } else {
-            mijnTaken.load()
-        }
+        mijnTaken.load()
+       }
         self.tableView.reloadData()
     }
     
@@ -95,8 +103,8 @@ extension MijnLijstViewController: UISearchBarDelegate {
             DispatchQueue.main.async{
                 searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
             }
-           mijnTaken.load()
-             self.tableView.reloadData()
+            mijnTaken.load()
+            self.tableView.reloadData()
         }
     }
 }

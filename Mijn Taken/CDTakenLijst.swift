@@ -12,13 +12,21 @@ import CoreData
 class CDTakenLijst {
     
     var lijst = [Taak]()
-    
+    var baseFilter = NSPredicate()
+    var gekozenCat : Category? {
+        didSet {
+            baseFilter = NSPredicate(format: "pCategory MATCHES %@", gekozenCat!.naam!)
+            load()
+        }
+    }
+
     let mijnContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     func append(_ taakNaam : String, _ taakChecked : Bool){
         let nieuweTaak = Taak(context: mijnContext)
         nieuweTaak.naam = taakNaam
         nieuweTaak.checked = taakChecked
+        nieuweTaak.pCategory = gekozenCat
         lijst.append(nieuweTaak)
     }
     
@@ -34,7 +42,14 @@ class CDTakenLijst {
         }
     }
     
-    func load (with request: NSFetchRequest<Taak> = Taak.fetchRequest()){
+    func load (with request: NSFetchRequest<Taak> = Taak.fetchRequest(),filteredBy extraFilter: NSPredicate? = nil){
+        if extraFilter != nil {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [baseFilter,extraFilter!])
+        } else {
+            request.predicate = baseFilter
+        }
+//        request.predicate = NSPredicate(format: "pCategory MATCHES %@", gekozenCat!.naam!)
+        request.sortDescriptors = [NSSortDescriptor(key: "naam", ascending: true)]
         do {
             lijst = try mijnContext.fetch(request)
         } catch  {
@@ -46,10 +61,8 @@ class CDTakenLijst {
         if taakNaamTeSelecteren == "" {
             load()
         } else {
-            let myRequest : NSFetchRequest<Taak> = Taak.fetchRequest()  //we gebruiken de default request niet
-            myRequest.predicate = NSPredicate(format: "naam CONTAINS[cd] %@", taakNaamTeSelecteren)
-            myRequest.sortDescriptors = [NSSortDescriptor(key: "naam", ascending: true)]
-            load(with: myRequest)
+            let extraFilter = NSPredicate(format: "naam CONTAINS[cd] %@", taakNaamTeSelecteren)
+            load(filteredBy: extraFilter)
          }
 
     }

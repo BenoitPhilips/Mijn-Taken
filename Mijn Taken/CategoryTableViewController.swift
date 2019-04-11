@@ -37,12 +37,23 @@ class CategoryTableViewController: UITableViewController {
     //MARK: - TableView Delegate methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Geselecteerde rij vervangen we door niet geselecteerd en markeren/demarkeren met een checkmark
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "GaNaarTeDoen", sender: self)
      }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! MijnLijstViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.mijnTaken.gekozenCat = myCat.lijst[indexPath.row]
+        } else {
+            print("BPH: geen indexpath gevonden voor de geselecteerde rij")
+        }
+    }
     
   //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de buttons
     @IBAction func addCatBtnPressed(_ sender: UIBarButtonItem) {
+       
         var nieuweCatTxtFld = UITextField()
         
         let alert = UIAlertController(title: "Maak een nieuwe taak", message: "", preferredStyle: .alert)
