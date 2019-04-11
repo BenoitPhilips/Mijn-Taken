@@ -15,8 +15,12 @@ class CategoriesViewController: UITableViewController {
 
      }
 
-
+    @IBAction func gaNaarTeDoenBtnPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "GaNaarTeDoen", sender: nil)
+    }
+    
     @IBAction func NieuweCatBtnPressed(_ sender: UIBarButtonItem) {
+        
     }
     
 }

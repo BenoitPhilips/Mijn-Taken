@@ -48,6 +48,11 @@ class MijnLijstViewController: UITableViewController {
 
     //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de buttons
+    
+    @IBAction func terugNaarCatBtnPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func nieuweTaakBtnPressed(_ sender: UIBarButtonItem) {
         var nieuweTaakTxtFld = UITextField()
         

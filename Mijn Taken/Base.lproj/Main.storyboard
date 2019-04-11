@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UYd-Lp-fGb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatItemCell" id="UYd-Lp-fGb">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UYd-Lp-fGb" id="MsC-Wm-Vcf">
@@ -32,6 +32,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Taken" id="SdL-RJ-X7b">
+                        <barButtonItem key="leftBarButtonItem" title="Te Doen" id="u0Y-JH-8IM">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="gaNaarTeDoenBtnPressed:" destination="XQb-lS-MMp" id="hMV-FW-4tU"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gk7-n5-gnc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -40,7 +46,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="cWs-5R-r2D" kind="show" id="cq5-ga-Mip"/>
+                        <segue destination="cWs-5R-r2D" kind="show" identifier="GaNaarTeDoen" id="cq5-ga-Mip"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3c-gb-SUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,6 +85,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Te Doen" id="xkU-4s-x8J">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="bKU-gn-6ws">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="terugNaarCatBtnPressed:" destination="cWs-5R-r2D" id="LWk-Y8-9dl"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="X3s-lx-5DX">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
