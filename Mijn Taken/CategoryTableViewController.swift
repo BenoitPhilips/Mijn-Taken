@@ -40,7 +40,7 @@ class CategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Geselecteerde rij vervangen we door niet geselecteerd en markeren/demarkeren met een checkmark
         //tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "GaNaarTeDoen", sender: self)
+        performSegue(withIdentifier: "GaNaarTedoen", sender: self)
      }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
