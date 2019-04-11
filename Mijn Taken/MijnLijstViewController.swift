@@ -19,7 +19,7 @@ class MijnLijstViewController: UITableViewController {
     //----------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        mijnTaken.load()
+        //mijnTaken.load() -- is niet meer nodig omdat ze in de DidSet van de gekozenCat wordt opgeroepen
         navigationController?.navigationItem.setHidesBackButton(false, animated: true)
         
     }
@@ -66,8 +66,8 @@ class MijnLijstViewController: UITableViewController {
             if let nieuweTaakTxt = nieuweTaakTxtFld.text {
                 if nieuweTaakTxt != "" {
                     self.mijnTaken.append(nieuweTaakTxt)
-                    self.tableView.reloadData()
                     self.mijnTaken.save()
+                    self.tableView.reloadData()
                 }
             }
         }

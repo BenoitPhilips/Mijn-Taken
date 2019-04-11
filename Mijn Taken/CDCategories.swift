@@ -14,6 +14,10 @@ class CDCategoriesLijst {
     var lijst = [Category]()
     
     let mijnContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  
+    // Waar is de SQLLite database gestockeerd ?
+    // opgelet, niet in .documentsDirectory maar in Library/Application Support van onze applicatie
+    let mijnDB = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
     
     func append(_ CatNaam : String){
         let nieuweCat = Category(context: mijnContext)
