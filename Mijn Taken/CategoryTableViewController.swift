@@ -61,7 +61,7 @@ class CategoryTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Maak een nieuwe taak", message: "", preferredStyle: .alert)
         
         let actie = UIAlertAction(title: "Nieuwe taak", style: .default) { (actie) in
-            //klik op de "Nieuwe Taak"-button wordt hier verwerkt
+            //klik op de "Nieuwe Categorie"-button wordt hier verwerkt
             if let nieuweCatTxt = nieuweCatTxtFld.text {
                 if nieuweCatTxt != "" {
                     self.myCat.append(nieuweCatTxt)
