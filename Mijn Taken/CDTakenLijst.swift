@@ -15,7 +15,7 @@ class CDTakenLijst {
     var baseFilter = NSPredicate()
     var gekozenCat : Category? {
         didSet {
-            baseFilter = NSPredicate(format: "pCategory MATCHES %@", gekozenCat!.naam!)
+            baseFilter = NSPredicate(format: "pCategory.naam MATCHES %@", gekozenCat!.naam!)
             load()
         }
     }
