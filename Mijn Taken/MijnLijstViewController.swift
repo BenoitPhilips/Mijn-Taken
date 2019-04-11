@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Mijn Taken test
 //  Terug op de Git master
-//  -------
+//  ------------------
 //
 //  Created by Benoit Philips on 05/04/2019.
 //  Copyright © 2019 HumbeekWave. All rights reserved.
