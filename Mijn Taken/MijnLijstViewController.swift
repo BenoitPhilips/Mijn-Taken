@@ -35,6 +35,7 @@ class MijnLijstViewController: UITableViewController {
         if let toDo = mijnTaken.takenLijst?[indexPath.row] {
             cell.textLabel?.text = toDo.naam
             cell.accessoryType = toDo.checked ? .checkmark : .none
+            cell.tintColor = UIColor.black
         } else {
             cell.textLabel?.text = "Nog geen Te Doen voor '\(mijnTaken.gekozenCat!.naam)'"
         }
@@ -45,13 +46,14 @@ class MijnLijstViewController: UITableViewController {
     //MARK: - TableView Delegate methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Geselecteerde rij vervangen we door niet geselecteerd en markeren/demarkeren met een checkmark
-        tableView.deselectRow(at: indexPath, animated: true)
        
         if let toDo = mijnTaken.takenLijst?[indexPath.row] {
             mijnTaken.updateChecked(toDo, !toDo.checked)
             tableView.reloadData()
         }
-    }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+  }
 
     //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de buttons
