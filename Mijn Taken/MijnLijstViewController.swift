@@ -8,13 +8,13 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 //==================================================================================================
 
 class MijnLijstViewController: UITableViewController {
 
-    let mijnTaken = CDTakenLijst()
+    let mijnTaken = RealmTakenLijst()
  
     //----------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -27,14 +27,17 @@ class MijnLijstViewController: UITableViewController {
     //----------------------------------------------------------------------------------------------------------
     //MARK: - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mijnTaken.lijst.count
+        return mijnTaken.takenLijst?.count  ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaakItemCell", for: indexPath)
-        cell.textLabel?.text=mijnTaken.lijst[indexPath.row].naam
-        // De checkbox staat aan zelfs als we in XCode dat bij de viewcontroller op default hebben ingesteld.
-        cell.accessoryType = mijnTaken.lijst[indexPath.row].checked ? .checkmark : .none
+        if let toDo = mijnTaken.takenLijst?[indexPath.row] {
+            cell.textLabel?.text = toDo.naam
+            cell.accessoryType = toDo.checked ? .checkmark : .none
+        } else {
+            cell.textLabel?.text = "Nog geen Te Doen voor '\(mijnTaken.gekozenCat!.naam)'"
+        }
         return cell
     }
     
@@ -43,9 +46,11 @@ class MijnLijstViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Geselecteerde rij vervangen we door niet geselecteerd en markeren/demarkeren met een checkmark
         tableView.deselectRow(at: indexPath, animated: true)
-        mijnTaken.lijst[indexPath.row].checked = !mijnTaken.lijst[indexPath.row].checked
-        tableView.reloadData()
-        mijnTaken.save()
+       
+        if let toDo = mijnTaken.takenLijst?[indexPath.row] {
+            mijnTaken.updateChecked(toDo, !toDo.checked)
+            tableView.reloadData()
+        }
     }
 
     //----------------------------------------------------------------------------------------------------------
@@ -64,9 +69,8 @@ class MijnLijstViewController: UITableViewController {
         let actie = UIAlertAction(title: "Nieuwe Te Doen", style: .default) { (actie) in
             //klik op de "Nieuwe Taak"-button wordt hier verwerkt
             if let nieuweTaakTxt = nieuweTaakTxtFld.text {
-                if nieuweTaakTxt != "" {
-                    self.mijnTaken.append(nieuweTaakTxt)
-                    self.mijnTaken.save()
+                if nieuweTaakTxt != "" { //TODO: Hier zou nog een controle moeten komen mocht de ToDo/Taak reeds bestaan
+                    self.mijnTaken.appendAndSave(nieuweTaakTxt)
                     self.tableView.reloadData()
                 }
             }
@@ -92,9 +96,9 @@ extension MijnLijstViewController: UISearchBarDelegate {
             searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
         }
       if let filter = searchBar.text {
-            mijnTaken.load(filter)
+            mijnTaken.loadTaken(filter)
         } else {
-        mijnTaken.load()
+            mijnTaken.loadTaken()
        }
         self.tableView.reloadData()
     }
@@ -104,7 +108,7 @@ extension MijnLijstViewController: UISearchBarDelegate {
             DispatchQueue.main.async{
                 searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
             }
-            mijnTaken.load()
+            mijnTaken.loadTaken()
             self.tableView.reloadData()
         }
     }

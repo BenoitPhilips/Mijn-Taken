@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002631B9225D786200058F55 /* CDTakenLijst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002631B8225D786200058F55 /* CDTakenLijst.swift */; };
+		0018BF6A2266CF9A00E986C4 /* RealmCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF692266CF9A00E986C4 /* RealmCategory.swift */; };
+		0018BF6E2266D3D900E986C4 /* RealmTakenLijst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF6D2266D3D900E986C4 /* RealmTakenLijst.swift */; };
+		0018BF702266D43A00E986C4 /* RealmTaak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF6F2266D43A00E986C4 /* RealmTaak.swift */; };
+		0018BF722266D5CF00E986C4 /* RealmCategorieLijst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF712266D5CF00E986C4 /* RealmCategorieLijst.swift */; };
 		00812FA72256DCE4007E928E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00812FA62256DCE4007E928E /* AppDelegate.swift */; };
 		00812FA92256DCE4007E928E /* MijnLijstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00812FA82256DCE4007E928E /* MijnLijstViewController.swift */; };
 		00812FAC2256DCE4007E928E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAA2256DCE4007E928E /* Main.storyboard */; };
 		00812FAE2256DCE5007E928E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAD2256DCE5007E928E /* Assets.xcassets */; };
 		00812FB12256DCE5007E928E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAF2256DCE5007E928E /* LaunchScreen.storyboard */; };
-		009FD741225C72B6003E641E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 009FD73F225C72B6003E641E /* DataModel.xcdatamodeld */; };
 		00EC0B6E225DAAAF00634F05 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0B6D225DAAAF00634F05 /* CategoryTableViewController.swift */; };
-		00EC0B70225DB1DF00634F05 /* CDCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0B6F225DB1DF00634F05 /* CDCategories.swift */; };
 		0228F0DF5B35B031739F5D29 /* Pods_Mijn_Taken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D4EF68A5BD840F1C4C40AB /* Pods_Mijn_Taken.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		002631B8225D786200058F55 /* CDTakenLijst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTakenLijst.swift; sourceTree = "<group>"; };
+		0018BF692266CF9A00E986C4 /* RealmCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCategory.swift; sourceTree = "<group>"; };
+		0018BF6D2266D3D900E986C4 /* RealmTakenLijst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTakenLijst.swift; sourceTree = "<group>"; };
+		0018BF6F2266D43A00E986C4 /* RealmTaak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTaak.swift; sourceTree = "<group>"; };
+		0018BF712266D5CF00E986C4 /* RealmCategorieLijst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCategorieLijst.swift; sourceTree = "<group>"; };
 		00812FA32256DCE4007E928E /* Mijn Taken.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mijn Taken.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00812FA62256DCE4007E928E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00812FA82256DCE4007E928E /* MijnLijstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MijnLijstViewController.swift; sourceTree = "<group>"; };
@@ -28,9 +32,7 @@
 		00812FAD2256DCE5007E928E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00812FB02256DCE5007E928E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00812FB22256DCE5007E928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		009FD740225C72B6003E641E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		00EC0B6D225DAAAF00634F05 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
-		00EC0B6F225DB1DF00634F05 /* CDCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategories.swift; sourceTree = "<group>"; };
 		3FB4C9C5F41578A543BF5C18 /* Pods-Mijn Taken.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mijn Taken.release.xcconfig"; path = "Target Support Files/Pods-Mijn Taken/Pods-Mijn Taken.release.xcconfig"; sourceTree = "<group>"; };
 		60A1AE301EABAE56D8175438 /* Pods-Mijn Taken.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mijn Taken.debug.xcconfig"; path = "Target Support Files/Pods-Mijn Taken/Pods-Mijn Taken.debug.xcconfig"; sourceTree = "<group>"; };
 		60D4EF68A5BD840F1C4C40AB /* Pods_Mijn_Taken.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mijn_Taken.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,9 +93,10 @@
 		009FD736225C3D67003E641E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				009FD73F225C72B6003E641E /* DataModel.xcdatamodeld */,
-				00EC0B6F225DB1DF00634F05 /* CDCategories.swift */,
-				002631B8225D786200058F55 /* CDTakenLijst.swift */,
+				0018BF692266CF9A00E986C4 /* RealmCategory.swift */,
+				0018BF6F2266D43A00E986C4 /* RealmTaak.swift */,
+				0018BF712266D5CF00E986C4 /* RealmCategorieLijst.swift */,
+				0018BF6D2266D3D900E986C4 /* RealmTakenLijst.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -129,7 +132,6 @@
 				60A1AE301EABAE56D8175438 /* Pods-Mijn Taken.debug.xcconfig */,
 				3FB4C9C5F41578A543BF5C18 /* Pods-Mijn Taken.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -257,10 +259,11 @@
 			files = (
 				00812FA92256DCE4007E928E /* MijnLijstViewController.swift in Sources */,
 				00812FA72256DCE4007E928E /* AppDelegate.swift in Sources */,
-				00EC0B70225DB1DF00634F05 /* CDCategories.swift in Sources */,
+				0018BF702266D43A00E986C4 /* RealmTaak.swift in Sources */,
+				0018BF722266D5CF00E986C4 /* RealmCategorieLijst.swift in Sources */,
 				00EC0B6E225DAAAF00634F05 /* CategoryTableViewController.swift in Sources */,
-				002631B9225D786200058F55 /* CDTakenLijst.swift in Sources */,
-				009FD741225C72B6003E641E /* DataModel.xcdatamodeld in Sources */,
+				0018BF6A2266CF9A00E986C4 /* RealmCategory.swift in Sources */,
+				0018BF6E2266D3D900E986C4 /* RealmTakenLijst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,19 +467,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		009FD73F225C72B6003E641E /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				009FD740225C72B6003E641E /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 009FD740225C72B6003E641E /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 00812F9B2256DCE4007E928E /* Project object */;
 }

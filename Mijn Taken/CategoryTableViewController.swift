@@ -9,30 +9,29 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 //==================================================================================================
 
 class CategoryTableViewController: UITableViewController {
 
-    let myCat = CDCategoriesLijst()
+    let myCat = RealmCategoriesLijst()
 
     //----------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(myCat.mijnDB)
-        myCat.load()
+        myCat.loadCategories()
     }
     
     //----------------------------------------------------------------------------------------------------------
     //MARK: - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myCat.lijst.count
+        return myCat.categoryLijst?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CatItemCell", for: indexPath)
-        cell.textLabel?.text=myCat.lijst[indexPath.row].naam
+        cell.textLabel?.text=myCat.categoryLijst?[indexPath.row].naam ?? "Nog geen Taken aangemaakt"
         return cell
     }
     
@@ -47,7 +46,7 @@ class CategoryTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! MijnLijstViewController
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.mijnTaken.gekozenCat = myCat.lijst[indexPath.row]
+            destinationVC.mijnTaken.gekozenCat = myCat.categoryLijst![indexPath.row]
         } else {
             print("BPH: geen indexpath gevonden voor de geselecteerde rij")
         }
@@ -64,10 +63,9 @@ class CategoryTableViewController: UITableViewController {
         let actie = UIAlertAction(title: "Nieuwe taak", style: .default) { (actie) in
             //klik op de "Nieuwe Categorie"-button wordt hier verwerkt
             if let nieuweCatTxt = nieuweCatTxtFld.text {
-                if nieuweCatTxt != "" {
-                    self.myCat.append(nieuweCatTxt)
+                if nieuweCatTxt != "" { //ToDo: Hier zou ook moeten getest worden of de neiuwe category reeds bestaat
+                    self.myCat.appendAndSave(nieuweCatTxt)
                     self.tableView.reloadData()
-                    self.myCat.save()
                 }
             }
         }
@@ -94,9 +92,9 @@ extension CategoryTableViewController: UISearchBarDelegate {
             searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
         }
         if let filter = searchBar.text {
-            myCat.load(filter)
+            myCat.loadCategories(filter)
         } else {
-            myCat.load()
+            myCat.loadCategories()
         }
         self.tableView.reloadData()
     }
@@ -106,7 +104,7 @@ extension CategoryTableViewController: UISearchBarDelegate {
             DispatchQueue.main.async{
                 searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
             }
-            myCat.load()
+            myCat.loadCategories()
             self.tableView.reloadData()
         }
     }
