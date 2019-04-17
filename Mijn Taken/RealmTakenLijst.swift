@@ -13,12 +13,7 @@ class RealmTakenLijst {
     
     let realmDB = try! Realm()
 
-    var takenLijst : Results<RealmTaak>? {
-        didSet {
-            loadTaken()
-        }
-    }
-    
+    var takenLijst : Results<RealmTaak>?
     var gekozenCat : RealmCategory? {
         didSet {
             loadTaken()

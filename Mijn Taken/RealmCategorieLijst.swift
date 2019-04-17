@@ -19,11 +19,7 @@ class RealmCategoriesLijst {
     //    }
     let realmDB = try! Realm()
     
-    var categoryLijst : Results<RealmCategory>? {
-        didSet {
-            loadCategories()
-        }
-    }
+    var categoryLijst : Results<RealmCategory>? 
     
     func appendAndSave(_ CatNaam : String){
         let nieuweCat = RealmCategory()
