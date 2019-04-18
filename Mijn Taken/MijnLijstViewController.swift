@@ -12,7 +12,7 @@ import RealmSwift
 
 //==================================================================================================
 
-class MijnLijstViewController: UITableViewController {
+class MijnLijstViewController: SwipeTableViewController {
 
     let mijnTaken = RealmTakenLijst()
  

@@ -11,6 +11,7 @@
 		0018BF6E2266D3D900E986C4 /* RealmTakenLijst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF6D2266D3D900E986C4 /* RealmTakenLijst.swift */; };
 		0018BF702266D43A00E986C4 /* RealmTaak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF6F2266D43A00E986C4 /* RealmTaak.swift */; };
 		0018BF722266D5CF00E986C4 /* RealmCategorieLijst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF712266D5CF00E986C4 /* RealmCategorieLijst.swift */; };
+		005DFB162268396A00563B6C /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DFB152268396A00563B6C /* SwipeTableViewController.swift */; };
 		00812FA72256DCE4007E928E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00812FA62256DCE4007E928E /* AppDelegate.swift */; };
 		00812FA92256DCE4007E928E /* MijnLijstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00812FA82256DCE4007E928E /* MijnLijstViewController.swift */; };
 		00812FAC2256DCE4007E928E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAA2256DCE4007E928E /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		0018BF6D2266D3D900E986C4 /* RealmTakenLijst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTakenLijst.swift; sourceTree = "<group>"; };
 		0018BF6F2266D43A00E986C4 /* RealmTaak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTaak.swift; sourceTree = "<group>"; };
 		0018BF712266D5CF00E986C4 /* RealmCategorieLijst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCategorieLijst.swift; sourceTree = "<group>"; };
+		005DFB152268396A00563B6C /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		00812FA32256DCE4007E928E /* Mijn Taken.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mijn Taken.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00812FA62256DCE4007E928E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00812FA82256DCE4007E928E /* MijnLijstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MijnLijstViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				00EC0B6D225DAAAF00634F05 /* CategoryTableViewController.swift */,
 				00812FA82256DCE4007E928E /* MijnLijstViewController.swift */,
+				005DFB152268396A00563B6C /* SwipeTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				005DFB162268396A00563B6C /* SwipeTableViewController.swift in Sources */,
 				00812FA92256DCE4007E928E /* MijnLijstViewController.swift in Sources */,
 				00812FA72256DCE4007E928E /* AppDelegate.swift in Sources */,
 				0018BF702266D43A00E986C4 /* RealmTaak.swift in Sources */,
