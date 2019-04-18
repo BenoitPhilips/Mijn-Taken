@@ -41,7 +41,7 @@ class MijnLijstViewController: SwipeTableViewController {
         return cell
     }
     
-    //----------------------------------------------------------------------------------------------------------
+     //----------------------------------------------------------------------------------------------------------
     //MARK: - TableView Delegate methods
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -93,12 +93,21 @@ class MijnLijstViewController: SwipeTableViewController {
         }
     }
     
+    //----------------------------------------------------------------------------------------------------------
+    //MARK: - searchbar op ViewController bereikbaar maken
+    //
+    @IBOutlet weak var searchBar: UISearchBar!
+    
 }
 
 //==================================================================================================
 //MARK: - SearchBar functions
 //
 extension MijnLijstViewController: UISearchBarDelegate {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        searchBar.barTintColor = altCellColor
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         DispatchQueue.main.async{

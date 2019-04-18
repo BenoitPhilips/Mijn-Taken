@@ -42,6 +42,7 @@ class CategoryTableViewController: SwipeTableViewController {
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          performSegue(withIdentifier: "GaNaarTedoen", sender: self)
+         tableView.deselectRow(at: indexPath, animated: true)
      }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -91,6 +92,12 @@ class CategoryTableViewController: SwipeTableViewController {
             print("BPH: no taak selected for deletion")
         }
     }
+    
+    //----------------------------------------------------------------------------------------------------------
+    //MARK: - searchbar op ViewController bereikbaar maken
+    //
+   @IBOutlet weak var searchBar: UISearchBar!
+    
 }
 
 //==================================================================================================
@@ -98,7 +105,11 @@ class CategoryTableViewController: SwipeTableViewController {
 //
 extension CategoryTableViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    override func viewWillAppear(_ animated: Bool) {
+        searchBar.barTintColor = altCellColor
+    }
+    
+   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         DispatchQueue.main.async{
             searchBar.resignFirstResponder() // hide keyboard and cursor in searchfield
         }

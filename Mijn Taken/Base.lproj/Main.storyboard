@@ -49,6 +49,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="kX6-kU-dJw" id="IoI-SN-rc1"/>
                         <segue destination="cWs-5R-r2D" kind="show" identifier="GaNaarTedoen" id="mjd-mg-Efq"/>
                     </connections>
                 </tableViewController>
@@ -67,7 +68,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" id="GKn-3W-BVO">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <connections>
                                 <outlet property="delegate" destination="cWs-5R-r2D" id="FLp-EH-xC6"/>
                             </connections>
@@ -95,6 +96,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="SearchBar" destination="GKn-3W-BVO" id="yhm-v0-ZMV"/>
+                        <outlet property="searchBar" destination="GKn-3W-BVO" id="oSQ-5B-h9i"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nwb-0n-LVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
