@@ -9,6 +9,8 @@
 import UIKit
 import SwipeCellKit
 
+//==================================================================================================
+
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
 
     let altCellColor = UIColor(hex: "#bbbcc2ff")
@@ -23,6 +25,9 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         navBar.barTintColor = navBarColor
       }
 
+    //----------------------------------------------------------------------------------------------------------
+    //MARK: - Tableview Datasource Methods
+    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SwipeableCell", for: indexPath) as! SwipeTableViewCell
         if indexPath.row % 2 == 0 {
@@ -60,3 +65,6 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     }
 
 }
+
+//==================================================================================================
+

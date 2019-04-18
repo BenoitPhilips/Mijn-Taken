@@ -24,6 +24,7 @@ class MijnLijstViewController: SwipeTableViewController {
 
     //----------------------------------------------------------------------------------------------------------
     //MARK: - Tableview Datasource Methods
+    //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mijnTaken.takenLijst?.count  ?? 1
     }
@@ -42,6 +43,7 @@ class MijnLijstViewController: SwipeTableViewController {
     
     //----------------------------------------------------------------------------------------------------------
     //MARK: - TableView Delegate methods
+    //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Geselecteerde rij vervangen we door niet geselecteerd en markeren/demarkeren met een checkmark
        
@@ -51,16 +53,11 @@ class MijnLijstViewController: SwipeTableViewController {
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
-  }
+    }
 
     //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de buttons
-    
-//
-//    @IBAction func terugNaarCatBtnPressed(_ sender: UIBarButtonItem) {
-//         dismiss(animated: true, completion: nil)
-//    }
-//
+    //
     @IBAction func nieuweTaakBtnPressed(_ sender: UIBarButtonItem) {
         var nieuweTaakTxtFld = UITextField()
         
@@ -87,6 +84,7 @@ class MijnLijstViewController: SwipeTableViewController {
     
     //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de swipe van een cell (bij verwijderen)
+    //
     override func deleteDataInModel (at indexPath : IndexPath) {
         if let TaakToDelete = self.mijnTaken.takenLijst?[indexPath.row] {
             self.mijnTaken.deleteTaak(TaakToDelete)
@@ -99,7 +97,7 @@ class MijnLijstViewController: SwipeTableViewController {
 
 //==================================================================================================
 //MARK: - SearchBar functions
-
+//
 extension MijnLijstViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

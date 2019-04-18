@@ -26,6 +26,7 @@ class CategoryTableViewController: SwipeTableViewController {
     
     //----------------------------------------------------------------------------------------------------------
     //MARK: - Tableview Datasource Methods
+    //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myCat.categoryLijst?.count ?? 1
     }
@@ -38,6 +39,7 @@ class CategoryTableViewController: SwipeTableViewController {
     
     //----------------------------------------------------------------------------------------------------------
     //MARK: - TableView Delegate methods
+    //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          performSegue(withIdentifier: "GaNaarTedoen", sender: self)
      }
@@ -51,8 +53,9 @@ class CategoryTableViewController: SwipeTableViewController {
         }
     }
     
-  //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de buttons
+    //
     @IBAction func addCatBtnPressed(_ sender: UIBarButtonItem) {
        
         var nieuweCatTxtFld = UITextField()
@@ -80,6 +83,7 @@ class CategoryTableViewController: SwipeTableViewController {
     
     //----------------------------------------------------------------------------------------------------------
     //MARK: - opvang van de swipe van een cell (bij verwijderen)
+    //
     override func deleteDataInModel (at indexPath : IndexPath) {
         if let catToDelete = self.myCat.categoryLijst?[indexPath.row] {
             self.myCat.deleteCategory(catToDelete)
@@ -87,12 +91,11 @@ class CategoryTableViewController: SwipeTableViewController {
             print("BPH: no taak selected for deletion")
         }
     }
-    
 }
 
 //==================================================================================================
 //MARK: - SearchBar functions
-
+//
 extension CategoryTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -120,7 +123,7 @@ extension CategoryTableViewController: UISearchBarDelegate {
 
 //==================================================================================================
 //MARK: - HexColor selection
-
+//
 extension UIColor {
     public convenience init?(hex: String) {
         let r, g, b, a: CGFloat
@@ -148,3 +151,5 @@ extension UIColor {
         return nil
     }
 }
+
+//==================================================================================================
