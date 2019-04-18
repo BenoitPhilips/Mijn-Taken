@@ -44,5 +44,15 @@ class RealmCategoriesLijst {
             categoryLijst = categoryLijst?.filter("naam CONTAINS[cd] %@", CatNaamTeSelecteren).sorted(byKeyPath: "naam", ascending: true)
         }
     }
+    
+    func deleteCategory (_ catToDelete : RealmCategory) {
+         do {
+            try realmDB.write {
+                realmDB.delete(catToDelete)
+            }
+        } catch {
+            print("BPH: Error deleting Taak \(catToDelete.naam) : \(error)")
+        }
+    }
 
 }

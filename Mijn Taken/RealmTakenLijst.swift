@@ -58,5 +58,15 @@ class RealmTakenLijst {
             takenLijst = takenLijst?.filter("naam CONTAINS[cd] %@", taakNaamTeSelecteren).sorted(byKeyPath: "naam", ascending: true)
         }
     }
+    
+    func deleteTaak (_ toDoToDelete : RealmTaak) {
+        do {
+            try realmDB.write {
+                realmDB.delete(toDoToDelete)
+            }
+        } catch {
+            print("BPH: Error deleting To Do \(toDoToDelete.naam) : \(error)")
+        }
+     }
 
 }

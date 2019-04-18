@@ -10,6 +10,7 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 //==================================================================================================
 
@@ -21,6 +22,7 @@ class CategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myCat.loadCategories()
+        //tableView.rowHeight = 80.0
     }
     
     //----------------------------------------------------------------------------------------------------------
@@ -30,8 +32,9 @@ class CategoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CatItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CatItemCell", for: indexPath) as! SwipeTableViewCell
         cell.textLabel?.text=myCat.categoryLijst?[indexPath.row].naam ?? "Nog geen Taken aangemaakt"
+        cell.delegate = self
         return cell
     }
     
@@ -111,3 +114,32 @@ extension CategoryTableViewController: UISearchBarDelegate {
 }
 
 //==================================================================================================
+//MARK: - Swipe Cell Delegate functions
+
+extension CategoryTableViewController: SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
+            // handle deleteAction by updating model with deletion
+            if let catToDelete = self.myCat.categoryLijst?[indexPath.row] {
+                self.myCat.deleteCategory(catToDelete)
+            } else {
+                print("BPH: no category selected for deletion")
+            }
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete-icon")
+        
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+         return options
+    }
+    
+}
