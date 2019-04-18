@@ -31,8 +31,8 @@ class MijnLijstViewController: SwipeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaakItemCell", for: indexPath)
-        if let toDo = mijnTaken.takenLijst?[indexPath.row] {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+         if let toDo = mijnTaken.takenLijst?[indexPath.row] {
             cell.textLabel?.text = toDo.naam
             cell.accessoryType = toDo.checked ? .checkmark : .none
             cell.tintColor = UIColor.black
@@ -86,6 +86,17 @@ class MijnLijstViewController: SwipeTableViewController {
         
         present(alert,animated: true,completion: nil)
     }
+    
+    //----------------------------------------------------------------------------------------------------------
+    //MARK: - opvang van de swipe van een cell (bij verwijderen)
+    override func deleteDataInModel (at indexPath : IndexPath) {
+        if let TaakToDelete = self.mijnTaken.takenLijst?[indexPath.row] {
+            self.mijnTaken.deleteTaak(TaakToDelete)
+        } else {
+            print("BPH: no To Do selected for deletion")
+        }
+    }
+    
 }
 
 //==================================================================================================
