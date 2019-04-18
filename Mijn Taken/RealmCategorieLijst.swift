@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 
+//==================================================================================================
+
 class RealmCategoriesLijst {
     
     //Next statement should be required, but according manual, we can use forced unwrapped
@@ -56,3 +58,5 @@ class RealmCategoriesLijst {
     }
 
 }
+
+//==================================================================================================

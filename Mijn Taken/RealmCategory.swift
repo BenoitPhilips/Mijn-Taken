@@ -9,7 +9,11 @@
 import Foundation
 import RealmSwift
 
+//==================================================================================================
+
 class RealmCategory : Object {
     @objc dynamic var naam: String = ""
     let realmTakenLijst = List<RealmTaak>()
 }
+
+//==================================================================================================

@@ -9,8 +9,12 @@
 import Foundation
 import RealmSwift
 
+//==================================================================================================
+
 class RealmTaak : Object {
     @objc dynamic var naam : String = ""
     @objc dynamic var checked : Bool = false
     let realmParentCategory = LinkingObjects(fromType: RealmCategory.self, property: "realmTakenLijst")
 }
+
+//==================================================================================================
