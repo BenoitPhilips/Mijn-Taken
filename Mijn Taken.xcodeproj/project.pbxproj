@@ -12,10 +12,10 @@
 		0018BF702266D43A00E986C4 /* RealmTaak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF6F2266D43A00E986C4 /* RealmTaak.swift */; };
 		0018BF722266D5CF00E986C4 /* RealmCategorieLijst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018BF712266D5CF00E986C4 /* RealmCategorieLijst.swift */; };
 		005DFB162268396A00563B6C /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DFB152268396A00563B6C /* SwipeTableViewController.swift */; };
+		005DFB1922686F0000563B6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005DFB1822686F0000563B6C /* Assets.xcassets */; };
 		00812FA72256DCE4007E928E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00812FA62256DCE4007E928E /* AppDelegate.swift */; };
 		00812FA92256DCE4007E928E /* MijnLijstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00812FA82256DCE4007E928E /* MijnLijstViewController.swift */; };
 		00812FAC2256DCE4007E928E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAA2256DCE4007E928E /* Main.storyboard */; };
-		00812FAE2256DCE5007E928E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAD2256DCE5007E928E /* Assets.xcassets */; };
 		00812FB12256DCE5007E928E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00812FAF2256DCE5007E928E /* LaunchScreen.storyboard */; };
 		00EC0B6E225DAAAF00634F05 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0B6D225DAAAF00634F05 /* CategoryTableViewController.swift */; };
 		0228F0DF5B35B031739F5D29 /* Pods_Mijn_Taken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D4EF68A5BD840F1C4C40AB /* Pods_Mijn_Taken.framework */; };
@@ -27,11 +27,11 @@
 		0018BF6F2266D43A00E986C4 /* RealmTaak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTaak.swift; sourceTree = "<group>"; };
 		0018BF712266D5CF00E986C4 /* RealmCategorieLijst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCategorieLijst.swift; sourceTree = "<group>"; };
 		005DFB152268396A00563B6C /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		005DFB1822686F0000563B6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00812FA32256DCE4007E928E /* Mijn Taken.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mijn Taken.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00812FA62256DCE4007E928E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00812FA82256DCE4007E928E /* MijnLijstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MijnLijstViewController.swift; sourceTree = "<group>"; };
 		00812FAB2256DCE4007E928E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		00812FAD2256DCE5007E928E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00812FB02256DCE5007E928E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00812FB22256DCE5007E928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00EC0B6D225DAAAF00634F05 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		002631BA225D85AA00058F55 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				00812FAD2256DCE5007E928E /* Assets.xcassets */,
+				005DFB1822686F0000563B6C /* Assets.xcassets */,
 				00812FAF2256DCE5007E928E /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting files";
@@ -199,7 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00812FB12256DCE5007E928E /* LaunchScreen.storyboard in Resources */,
-				00812FAE2256DCE5007E928E /* Assets.xcassets in Resources */,
+				005DFB1922686F0000563B6C /* Assets.xcassets in Resources */,
 				00812FAC2256DCE4007E928E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

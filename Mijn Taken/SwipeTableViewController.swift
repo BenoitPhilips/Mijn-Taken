@@ -11,13 +11,25 @@ import SwipeCellKit
 
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
 
+    let altCellColor = UIColor(hex: "#bbbcc2ff")
+    let navBarColor = UIColor(hex: "#0096ffff")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     
+        guard let navBar = navigationController?.navigationBar else {
+            fatalError("BPH: no navigationbar as navigation controller was not loaded")
+        }
+        navBar.barTintColor = navBarColor
       }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SwipeableCell", for: indexPath) as! SwipeTableViewCell
+        if indexPath.row % 2 == 0 {
+            cell.contentView.backgroundColor = UIColor.white
+        } else {
+            cell.contentView.backgroundColor = altCellColor
+        }
         cell.delegate = self
         return cell
     }

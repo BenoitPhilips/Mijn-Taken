@@ -19,9 +19,7 @@ class MijnLijstViewController: SwipeTableViewController {
     //----------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        //mijnTaken.load() -- is niet meer nodig omdat ze in de DidSet van de gekozenCat wordt opgeroepen
-        navigationController?.navigationItem.setHidesBackButton(false, animated: true)
-        
+        navigationItem.title = mijnTaken.gekozenCat?.naam
     }
 
     //----------------------------------------------------------------------------------------------------------
